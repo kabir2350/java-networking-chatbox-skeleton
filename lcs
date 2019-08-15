@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include<string.h>
+int main(int argc, char** argv) {
+    char x[]="bangladesh";
+    char y[]="gladiator";//output=glad
+    int s1= sizeof(x) / sizeof(x[0]);
+    int s2= sizeof(y) / sizeof(y[0]);
+    int i,j,arr[s1][s2];
+    for(i=0;i<s1;i++){
+        for(j=0;j<s2;j++)
+                arr[i][j]=0;
+    }
+    printf("\t");
+    for(i=0;i<s2;i++){
+        printf(" %c \t", y[i]);
+    }
+   printf("\n  ");
+    for(i=0;i<s1;i++){
+        if(i>0)printf(" %c", x[i-1]);
+        for(j=0;j<s2;j++)
+        {
+            if(x[i]==y[j])arr[i+1][j+1]=1;
+            printf(" %d \t", arr[i][j]);
+        }
+        printf("\n");      
+    }
+    return 0;
+}
